@@ -1,0 +1,116 @@
+﻿<Page x:Class="CollectionViewSource.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:controls="using:Template10.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="using:CollectionViewSource.Views"
+      xmlns:collectionViewSource="using:CollectionViewSource"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+
+        <!--  header  -->
+        <controls:PageHeader BackButtonVisibility="Collapsed" Frame="{x:Bind Frame, Mode=OneWay}"
+                             Text="Main Page" VisualStateNarrowMinWidth="-1" />
+
+        <!--  #region content  -->
+
+        <Grid Grid.Row="1" Padding="12,4,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+
+                <CollectionViewSource x:Name="CvsCustomers"
+                                      Source="{x:Bind CustomerGroups, Mode=OneWay}"
+                                      IsSourceGrouped="True"
+                                      ItemsPath="Customers" />
+
+                <!-- Data Templates -->
+                <DataTemplate x:Key="ZoomedInTemplate"
+                              x:DataType="local:Customer">
+                    <Grid>
+                        <TextBlock Text="{x:Bind DisplayName, Mode=OneWay}" />
+                    </Grid>
+                </DataTemplate>
+
+                <DataTemplate x:Key="ZoomedInGroupHeaderTemplate"
+                              x:DataType="local:CustomerGroup">
+                    <TextBlock Text="{x:Bind LastName, Mode=OneWay}" />
+                </DataTemplate>
+
+                <DataTemplate x:Key="ZoomedOutTemplate"
+                              x:DataType="ICollectionViewGroup">
+                    <TextBlock Text="{x:Bind Group.(local:CustomerGroup.LastName), Mode=OneWay}" />
+                </DataTemplate>
+
+                <!-- Item Container Style Selector -->
+                <!--<Style x:Key="ItemStyle" TargetType="ListViewItem">
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Style>
+
+                <Style x:Key="AltItemStyle" TargetType="ListViewItem">
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Background" Value="LightBlue" />
+                </Style>
+
+                <collectionViewSource:AlternatingStyleSelector
+                    x:Key="AlternatingStyleSelector"
+                    AlternateItemStyle="{StaticResource AltItemStyle}"
+                    ItemStyle="{StaticResource ItemStyle}" />-->
+
+
+            </Grid.Resources>
+
+
+            <!--  content  -->
+
+            <SemanticZoom Grid.Column="0" Margin="24">
+                <SemanticZoom.ZoomedInView>
+
+                    <ListView ItemsSource="{x:Bind CvsCustomers.View, Mode=OneWay}"
+                              ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                              ItemTemplate="{StaticResource ZoomedInTemplate}"
+                              >
+                        <!--ItemContainerStyleSelector="{StaticResource AlternatingStyleSelector}">-->
+                        <ListView.GroupStyle>
+                            <GroupStyle HeaderTemplate="{StaticResource ZoomedInGroupHeaderTemplate}" />
+                        </ListView.GroupStyle>
+                    </ListView>
+
+                </SemanticZoom.ZoomedInView>
+
+                <SemanticZoom.ZoomedOutView>
+                    <ListView ItemsSource="{x:Bind CvsCustomers.View.CollectionGroups, Mode=OneWay}"
+                              ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                              SelectionMode="None"
+                              ItemTemplate="{StaticResource ZoomedOutTemplate}" />
+                </SemanticZoom.ZoomedOutView>
+            </SemanticZoom>
+
+            <!--Detail-->
+            <StackPanel Grid.Column="1" Margin="24">
+                <TextBox Header="First Name"
+                         Text="{Binding Source={StaticResource CvsCustomers}, 
+                            Path=FirstName, Mode=TwoWay}" />
+                <TextBox Header="Last Name"
+                         Text="{Binding Source={StaticResource CvsCustomers}, 
+                            Path=LastName, Mode=TwoWay}" />
+            </StackPanel>
+
+
+        </Grid>
+
+        <!--  #endregion  -->
+
+    </Grid>
+</Page>

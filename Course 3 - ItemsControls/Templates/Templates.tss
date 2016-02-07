@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\daren\OneDrive\Shared Folders\XAML MVA\Course 3 - ItemsControls\Templates\Templates\MainPage.xaml</string>
+      <string>C:\Users\daren\OneDrive\Shared Folders\XAML MVA\Course 3 - ItemsControls\Templates\Templates\MainPage.xaml.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>Object Browser</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

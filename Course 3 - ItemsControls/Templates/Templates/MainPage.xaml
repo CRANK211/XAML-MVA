@@ -1,0 +1,116 @@
+﻿<Page
+    x:Class="Templates.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Templates"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:Templates.Converters"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          Margin="12">
+        <Grid.Resources>
+            <DataTemplate x:Key="ItemTemplate"
+                          x:DataType="local:Customer">
+                <Grid>
+                    <TextBlock Text="{x:Bind DisplayName, Mode=OneWay}" />
+                </Grid>
+            </DataTemplate>
+
+            <converters:VisibleWhenZeroConverter x:Key="VisibleWhenZeroConverter" />
+
+            <DataTemplate x:Key="HeaderTemplate">
+                <StackPanel>
+
+                    <!--<TextBlock Style="{StaticResource HeaderTextBlockStyle}">
+                        <Run Text="Customers: " />
+                        <Run Text="{Binding ItemsSource.Count, ElementName=CustomerList}" />
+                    </TextBlock>
+                    
+                    <Button Content="Clear All" 
+                            Click="OnClearAll" />-->
+
+                    <!--<Border Background="Red"
+                            Visibility="{Binding ItemsSource.Count, ElementName=CustomerList, 
+                                         Converter={StaticResource VisibleWhenZeroConverter}}">
+                        <TextBlock Style="{StaticResource HeaderTextBlockStyle}"
+                                   Text="No Records Loaded" />
+                    </Border>-->
+
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="FooterTemplate">
+                <Grid>
+                    <!--<Button Content="Load More" 
+                            Click="OnLoadMore" />-->
+                </Grid>
+            </DataTemplate>
+
+            <ItemsPanelTemplate x:Key="ItemsPanelTemplate">
+                <ItemsStackPanel Orientation="Vertical">
+                    <!--<ItemsStackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                        </TransitionCollection>
+                    </ItemsStackPanel.ChildrenTransitions>-->
+                </ItemsStackPanel>
+            </ItemsPanelTemplate>
+
+            <!-- Template Selector -->
+            <!--<DataTemplate x:Key="AlternateItemTemplate"
+                          x:DataType="local:Customer">
+                <Grid Background="Yellow">
+                    <TextBlock Text="{x:Bind DisplayName, Mode=OneWay}" HorizontalAlignment="Stretch" />
+                </Grid>
+            </DataTemplate>
+
+
+            <local:ContainsStringTemplateSelector x:Key="FirstLetterTemplateSelector"
+                                                  ItemDataTemplate="{StaticResource ItemTemplate}"
+                                                  AlternateItemDataTemplate="{StaticResource AlternateItemTemplate}"
+                                                  SearchString="JO"/>-->
+
+        </Grid.Resources>
+
+
+        <ScrollViewer>
+            <ListView x:Name="CustomerList"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      ItemsSource="{x:Bind Customers, Mode=OneWay}"
+                      
+                      ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                      ItemTemplate="{StaticResource ItemTemplate}"
+                      HeaderTemplate="{StaticResource HeaderTemplate}"
+                      FooterTemplate="{StaticResource FooterTemplate}">
+                <!--<ListView.HeaderTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition/>
+                    </TransitionCollection>
+                </ListView.HeaderTransitions>
+                <ListView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                    </TransitionCollection>
+                </ListView.ItemContainerTransitions>
+                <ListView.FooterTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition/>
+                    </TransitionCollection>
+                </ListView.FooterTransitions>-->
+            </ListView>
+            
+            <!-- Template Selector -->
+            <!--<ListView x:Name="CustomerList"
+                      VerticalAlignment="Top"
+                      ItemsSource="{x:Bind Customers, Mode=OneWay}"
+                      ItemContainerStyle="{StaticResource ListViewItemStyle}"
+                      ItemsPanel="{StaticResource ItemsPanelTemplate}"
+                      ItemTemplateSelector="{StaticResource FirstLetterTemplateSelector}"
+                      HeaderTemplate="{StaticResource HeaderTemplate}"
+                      FooterTemplate="{StaticResource FooterTemplate}" />-->
+        </ScrollViewer>
+    </Grid>
+</Page>

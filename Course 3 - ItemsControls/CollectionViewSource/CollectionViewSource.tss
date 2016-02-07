@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\daren\OneDrive\Shared Folders\XAML MVA\Course 3 - ItemsControls\CollectionViewSource\CollectionViewSource\AlternatingStyleSelector.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\daren\onedrive\shared folders\xaml mva\course 3 - itemscontrols\collectionviewsource\collectionviewsource\views\mainpage.xaml</string>
+      <string>c:\users\daren\onedrive\shared folders\xaml mva\course 3 - itemscontrols\collectionviewsource\collectionviewsource\views\mainpage.xaml.cs</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

@@ -1,0 +1,126 @@
+﻿<Page x:Class="ColumnPanelDemo.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:controls="using:ColumnPanelDemo.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:ColumnPanelDemo"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="CardStyle" TargetType="StackPanel">
+            <Setter Property="Background" Value="Wheat" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Margin" Value="4,0,0,4" />
+            <Setter Property="Padding" Value="8" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Slider x:Name="ColWidth" Maximum="500"
+                    Minimum="100" StepFrequency="50"
+                    Value="250" />
+            <Button Click="Button_Click" Content="Add Item" />
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollMode="Disabled">
+            <controls:ColumnPanel x:Name="ColumnPanel" ColumnWidth="{x:Bind ColWidth.Value, Mode=OneWay}">
+                <controls:ColumnPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <AddDeleteThemeTransition />
+                    </TransitionCollection>
+                </controls:ColumnPanel.ChildrenTransitions>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource CardStyle}">
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                    <Image Source="https://raw.githubusercontent.com/Windows-XAML/Template10/master/Assets/NuGetLogo.png" />
+                    <TextBlock Text="Template 10 is the brainchild of Microsoft Developer Evangelism and was started there. Lots of learnings from Windows 8, including lots from the Pattern's and Practices Prism.StoreApps framework are in the code base." TextWrapping="WrapWholeWords" />
+                </StackPanel>
+            </controls:ColumnPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+</Page>
